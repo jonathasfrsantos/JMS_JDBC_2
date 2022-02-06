@@ -1,0 +1,67 @@
+CREATE database JMS_sistema;
+
+USE JMS_sistema;
+
+CREATE table tb_client (
+	id_client int not null primary key,
+    name varchar(200) not null,
+    feesValue double not null,
+    email varchar(100),
+    email2 varchar(100)
+    );
+    
+    SELECT * FROM tb_client;
+    
+    
+    
+INSERT INTO tb_client(id_client, name, feesValue) values 
+	(74, "DESENTUPIDORA MORAES LTDA", 700.00),
+    (97, "SINDICATO DAS EMPRESAS DE PUBLICIDADE EXTERIOR DO ESTADO DO RJ", 850),
+    (75, "MICROCITY COMPUTADORES E SISTEMAS LTDA", 1290),
+    (88, "SAHIONE SALLES ADVOGADOS ASSOCIADOS", 1200),
+    (80, "INSTANT SOLUTIONS TECNOLOGIA E SERVIÇOS LTDA", 3100),
+	(64, "CLINICA VETERINARIA MARQUESA DE SANTOS LTDA", 3100),
+    (47, "REIS E CAPDEVILLE ADVOGADOS ASSOCIADOS", 810),
+    (79, "PEDRA PORTARIA E SERVIÇOS LTDA ", 800),
+    (28, "PEDRA VIGILANCIA E SEGURANÇA EMPRESARIAL LTDA", 3000),
+    (108, "IGREJA BATISTA NOVA CENTRAL EM MESQUITA", 600),
+    (100, "NUTRIPACK COMERCIO DE PRODUTOS DESCARTAVEIS EIRELI", 3000),
+    (101, "GOLDPACKRIO ONLINE COMERCIO ELETRONICO DE DESCARTAVEIS EIRELI", 3000),
+    (103, "GOLDEN PACK RIO EMBALAGENS ERELI", 3000),
+    (90, "TOTAL TEXTIL REPRESENTAÇÕES COMERCIAIS LTDA", 910),
+    (43, "ESPAÇO RIO DE TREINAMENTO LTDA", 300),
+    (9999, "MIRIAN AJDELSTAJN", 50),
+    (81, "TALY AJDELSZTAJN", 700),
+    (85, "RITA HELENA SOARES BESSA ME", 1000),
+    (107, "CRAF - CENTRO DE RECICLAGEM DE APARAS FRADE EIRELI", 300),
+    (78, "ALTOMAR E BARRETTO SOCIEDADE DE ADVOGADOS ", 400),
+    (42, "E FERREIRA GOMES ADVOGADOS", 500),
+    (52, "PANCAKE BAR LTDA", 100),
+    (109, "AP ROCHA ORGANIZAÇÃO DE CONGRESSOS LTDA", 300),
+    (59, "INSTITUTO PARA O AVANÇO CIENTIFICO DOS PAISES DO SUL", 600),
+    (98, "LALANGUE PSICOLOGIA CLINICA LTDA", 100);
+
+CREATE TABLE tb_document (
+	id_document int not null primary key,
+    documentType varchar(11) not null,
+    issueDate date not null,
+    dueDate date not null,
+    value float not null,
+    paymentStatus varchar(10) default "PENDING",
+    payday date,
+    bank varchar(10),
+    id_client int,
+    constraint fk_Id_client foreign key(id_client) references tb_client (id_client)
+    );
+    
+    SELECT * FROM tb_document;
+    
+INSERT INTO tb_document(id_document, documentType, issueDate, dueDate, value, id_client)
+VALUES (2, "recibo", "2022-01-19", "2022-01-30", 910.0, 90),
+		(3, "recibo", "2022-01-19", "2022-01-30", 300.0, 43);
+	
+
+INSERT INTO tb_document(id_document, documentType, issueDate, dueDate, value, id_client)
+VALUES 	(2605, "nota fiscal", "2022-01-19", "2022-02-07", 800.0, 108),
+		(2614, "nota fiscal", "2022-01-19", "2022-01-30", 1200.0, 88)
+           ;
