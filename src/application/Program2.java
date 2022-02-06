@@ -59,7 +59,7 @@ public class Program2 {  //CRUD completo funcionando
 				double value = sc.nextDouble();
 				System.out.println("Enter with code of the customer: ");
 				int idCustomer = sc.nextInt();
-<<<<<<< HEAD
+
 
 				Customer customer = customerDao.findByCod(idCustomer);
 
@@ -68,14 +68,6 @@ public class Program2 {  //CRUD completo funcionando
 				receiptDao.insert(receipt2);
 				
 				System.out.println("Inserted new ID" + customer.getName());
-=======
-				Customer client = clientDao.findById(idCustomer);
-
-				Receipt receipt = new Receipt(id, documentType, issueDate, dueDate, value, client);
-
-				receiptDao.insert(receipt);
-				System.out.println("Inserted new ID" + client.getId());
->>>>>>> 33e6ee6049822569426dcdea5a4819102a80c1bb
 
 			} else if (userChoice == 4) {
 				System.out.println("Update a receipt");
@@ -87,8 +79,7 @@ public class Program2 {  //CRUD completo funcionando
 				Date payday = sdf.parse(sc.next());
 				System.out.println("Enter with a bank: ");
 				String bank = sc.next();
-<<<<<<< HEAD
-				
+
 				Receipt receipt = receiptDao.findByCod(cod);
 				receipt.setPaymentStatus(status);
 				receipt.setPayDate(payday);
@@ -105,27 +96,12 @@ public class Program2 {  //CRUD completo funcionando
 				receiptDao.findByCod(cod);
 				receiptDao.deleteByCod(cod);
 				System.out.println("Delete completed! ");
-=======
-
-				Receipt receipt = receiptDao.findById(id);
-				receipt.setPaymentStatus(status);
-				receipt.setBank(bank);
-				receipt.setPayDay(payday);
-
-				receiptDao.updatePayment(receipt);
-				System.out.println("Update completed");
 
 			} else if (userChoice == 5) {
 				System.out.println("Delete a receipt by ID");
 				System.out.println("Enter with id: ");
 				int id = sc.nextInt();
 
-				receiptDao.deleteById(id);
-				System.out.println("Delete completed");
->>>>>>> 33e6ee6049822569426dcdea5a4819102a80c1bb
-
-			} else {
-				System.out.println("Choose a valid option");
 			}
 			System.out.println("Do you wish continue? s/n ");
 			userAnswer = sc.next().charAt(0);

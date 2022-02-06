@@ -16,7 +16,6 @@ public class Receipt implements Serializable {
 	private Double value;
 	private String paymentStatus;
 	private String bank;
-<<<<<<< HEAD
 	private Date payDate;
 	private Customer customer;
 
@@ -24,18 +23,10 @@ public class Receipt implements Serializable {
 	}
 
 	// OBS: o construtor não utiliza todos os atributos
+
 	public Receipt(Integer id, Integer codDocument, String documentType, Date issueDate, Date dueDate, Double value,
 			Customer customer) {
-=======
-	private Date payDay;
-	private Customer customer;
-	
-	public Receipt() {
-	}
 
-	//OBS: o construtor não utiliza todos os atributos
-	public Receipt(Integer id, String documentType, Date issueDate, Date dueDate, Double value, Customer customer) {
->>>>>>> 33e6ee6049822569426dcdea5a4819102a80c1bb
 		this.id = id;
 		this.codDocument = codDocument;
 		this.documentType = documentType;
@@ -117,20 +108,11 @@ public class Receipt implements Serializable {
 		this.payDate = payDate;
 	}
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 33e6ee6049822569426dcdea5a4819102a80c1bb
 	public Customer getCustomer() {
 		return customer;
 	}
 
-<<<<<<< HEAD
-	public void setClient(Customer customer) {
-=======
-
 	public void setCustomer(Customer customer) {
->>>>>>> 33e6ee6049822569426dcdea5a4819102a80c1bb
 		this.customer = customer;
 	}
 
@@ -153,18 +135,9 @@ public class Receipt implements Serializable {
 
 	@Override
 	public String toString() {
-<<<<<<< HEAD
-		return "|Número -> " + codDocument + " |NF/RECIBO -> " + documentType + " |Emissão -> " + issueDate + " |Vencimento -> "
-				+ dueDate + " |Valor R$ -> " + value + " |Status -> " + paymentStatus + " |Data pagamento -> " + payDate
-				+ " |Banco -> " + bank + " |Empresa -> " + customer.getName();
-=======
-		return "Receipt | ID = " + id + "| Document type = " + documentType + " | Issue Date = " + issueDate + "| Due Date = " + dueDate 
-				+ "| Value = " + value + "|Payment Status = " + paymentStatus + "| Bank = " + bank + "| Payday = " + payDay + "| Customer = " + customer.getName();
-	}
-	
-	
->>>>>>> 33e6ee6049822569426dcdea5a4819102a80c1bb
+		return "|Número -> " + codDocument + " |NF/RECIBO -> " + documentType + " |Emissão -> " + issueDate
+				+ " |Vencimento -> " + dueDate + " |Valor R$ -> " + value + " |Status -> " + paymentStatus
+				+ " |Data pagamento -> " + payDate + " |Banco -> " + bank + " |Empresa -> " + customer.getName();
 
 	}
-
 }
